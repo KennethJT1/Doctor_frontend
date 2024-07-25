@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Antd styles */
+
+.ant-form-item {
+  margin: 11px 0;
+}
+
+input {
+  border-radius: 4px;
+  height: 35px;
+  width: 100%;
+  border: 1px solid gray;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid gray;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.normal-title {
+  font-size: 1rem;
+}
+
+.card {
+  border-radius: 0;
+  box-shadow: 0 0 2px gray;
+}
+
+label {
+  font-size: 16px;
+  color: black;
+}
+
+.primary-button {
+  color: black;
+  background-color: rgb(46, 171, 129);
+  border-color: rgb(46, 171, 129);
+  height: 40px;
+  width: 100%;
+  font-size: 15px;
+}
+
+secondary-button {
+}
+.anchor {
+  color: black !important;
+  font-size: 15px;
+}
+.routing {
+  color: rgb(239 68 68);
+}
