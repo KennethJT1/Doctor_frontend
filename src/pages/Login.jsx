@@ -1,13 +1,34 @@
 import { Button, Form } from "antd";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import toast from "react-hot-toast"
+import toast from "react-hot-toast";
 
 export const Login = () => {
-  const onFinish = (values) => {
-    console.log("I'm radying");
+  const navigate = useNavigate();
+
+  const onFinish = async (values) => {
+    try {
+      const res = await axios.post("/api/login", values);
+
+      if (res.data.success) {
+        toast.success(res.data.message);
+        localStorage.setItem("token", res.data.token);
+        navigate("/");
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data.message || "Server error");
+      } else if (error.request) {
+        toast.error("No response from server");
+      } else {
+        toast.error("Error setting up request");
+      }
+    }
   };
+
   return (
     <div className="h-screen flex justify-center items-center bg-slate-200">
       <div className="w-[400px] card p-4">
